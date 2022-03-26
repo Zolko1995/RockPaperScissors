@@ -4,13 +4,15 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>34fbbabf-a138-403c-92bf-6fe034aad392</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>RockPaperScissors.py</StartupFile>
+    <StartupFile>FingerCounter.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>RockPaperScissors</Name>
     <RootNamespace>RockPaperScissors</RootNamespace>
+    <InterpreterId>MSBuild|RPS|$(MSBuildProjectFullPath)</InterpreterId>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +23,24 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="RockPaperScissors.py" />
+    <Compile Include="FingerCounter.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HandDetectorModule.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="RPS\">
+      <Id>RPS</Id>
+      <Version>3.9</Version>
+      <Description>RPS (Python 3.9 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FingersJPG\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
